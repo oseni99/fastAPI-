@@ -5,6 +5,12 @@ import uvicorn
 
 app = FastAPI()
 
+@app.get("/")
+async def homepage():
+    return {
+        "details":"Homepage Success"
+        }
+
 @app.get('/blog')
 def index(limit=10,published:bool=True, sort: Optional[str]=None):
     if published:
