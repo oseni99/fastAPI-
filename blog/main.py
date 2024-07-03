@@ -6,6 +6,13 @@ from .routers import blog,user, authentication
 
 app = FastAPI()
 
+@app.get("/")
+async def homepage():
+    return {
+        "details":"Homepage Success"
+        }
+
+    
 models.Base.metadata.create_all(bind=engine)
 
 app.include_router(authentication.router)
